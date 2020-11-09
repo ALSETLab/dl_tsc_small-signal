@@ -77,8 +77,12 @@ else:
 if __name__ == "__main__":
 
     # Checking output directory (creating it if it does not exist)
-    _p_ds = os.path.join(os.getcwd(), "experiments", _dataset)
-    if not os.path.exists(_p_ds): os.mkdir(_p_ds)
+    _p_ds = os.path.join(os.getcwd(), "experiments")
+    if not os.path.exists(_p_ds):
+        os.mkdir(_p_ds)
+    _p_ds = os.path.join(_p_ds, _dataset)
+    if not os.path.exists(_p_ds):
+        os.mkdir(_p_ds)
 
     output_directory = os.path.abspath(os.path.join(_p_ds, _classifier))
     if not os.path.exists(output_directory):
